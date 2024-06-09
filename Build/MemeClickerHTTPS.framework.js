@@ -1976,13 +1976,13 @@ var tempI64;
 // === Body ===
 
 var ASM_CONSTS = {
-  4360524: function() {Module['emscripten_get_now_backup'] = performance.now;},  
- 4360579: function($0) {performance.now = function() { return $0; };},  
- 4360627: function($0) {performance.now = function() { return $0; };},  
- 4360675: function() {performance.now = Module['emscripten_get_now_backup'];},  
- 4360730: function() {return Module.webglContextAttributes.premultipliedAlpha;},  
- 4360791: function() {return Module.webglContextAttributes.preserveDrawingBuffer;},  
- 4360855: function() {return Module.webglContextAttributes.powerPreference;}
+  4360924: function() {Module['emscripten_get_now_backup'] = performance.now;},  
+ 4360979: function($0) {performance.now = function() { return $0; };},  
+ 4361027: function($0) {performance.now = function() { return $0; };},  
+ 4361075: function() {performance.now = Module['emscripten_get_now_backup'];},  
+ 4361130: function() {return Module.webglContextAttributes.premultipliedAlpha;},  
+ 4361191: function() {return Module.webglContextAttributes.preserveDrawingBuffer;},  
+ 4361255: function() {return Module.webglContextAttributes.powerPreference;}
 };
 
 
@@ -5388,6 +5388,7 @@ var ASM_CONSTS = {
                       blob = xhr.response;
                       console.log("SUCCESS: Video file downloaded " + jIdVideo)
                       putVideoInDb(blob);
+                      SendMessage('VideoManager', 'SavedIntoIndexDB', 1); // Give the green light to continue in the DownloadVideo corroutine
                   }
                   else
                   {
